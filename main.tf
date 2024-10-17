@@ -1,13 +1,10 @@
-data "azurerm_client_config" "current" {
-}
-
 data "azurerm_key_vault" "example" {
-  name                = "aks-kv-devops"
+  name                = "demo123-aks-kv"
   resource_group_name = "aks-kv-rg"
 }
 
-data "azurerm_key_vault_secret" "sshpubkey" {
-  name      = "sshpubkey"
+data "azurerm_key_vault_secret" "sshpublickey" {
+  name      = "sshpublickey"
   key_vault_id = data.azurerm_key_vault.example.id
 }
 
@@ -43,7 +40,7 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     admin_username = "sshuser"
 
     ssh_key {
-      key_data = data.azurerm_key_vault_secret.sshpubkey.value
+      key_data = data.azurerm_key_vault_secret.sshpublickey.value
     }
   }
  
@@ -66,5 +63,3 @@ output "kube_config" {
   value = "${azurerm_kubernetes_cluster.k8s.kube_config_raw}"
   sensitive = true
 }
-
-
