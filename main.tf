@@ -1,4 +1,5 @@
-
+data "azurerm_client_config" "current" {
+}
 
 data "azurerm_key_vault" "example" {
   name                = "aks-kv-devops"
