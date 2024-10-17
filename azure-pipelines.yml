@@ -1,0 +1,30 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger: none
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: TerraformCLI@2
+  displayName: INIT
+  inputs:
+    command: 'init'
+    allowTelemetryCollection: false
+
+- task: TerraformCLI@2
+  displayName: PLan
+  inputs:
+    command: 'plan'
+    environmentServiceName: 'Visual Studio Enterprise(1)(79b5e215-479a-429e-b57c-2444aa599e5b)'
+    allowTelemetryCollection: false
+    
+- task: TerraformCLI@2
+  displayName: Apply
+  inputs:
+    command: 'apply'
+    environmentServiceName: 'Visual Studio Enterprise(1)(79b5e215-479a-429e-b57c-2444aa599e5b)'
+    allowTelemetryCollection: false
