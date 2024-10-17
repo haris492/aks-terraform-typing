@@ -16,15 +16,15 @@ steps:
     allowTelemetryCollection: false
 
 - task: TerraformCLI@2
-  displayName: PLan
+  displayName: Plan
   inputs:
     command: 'plan'
-    environmentServiceName: 'Visual Studio Enterprise(1)(79b5e215-479a-429e-b57c-2444aa599e5b)'
+    environmentServiceName: 'spn-azure-devops'
     allowTelemetryCollection: false
-    
+
 - task: TerraformCLI@2
   displayName: Apply
   inputs:
     command: 'apply'
-    environmentServiceName: 'Visual Studio Enterprise(1)(79b5e215-479a-429e-b57c-2444aa599e5b)'
+    environmentServiceName: 'spn-azure-devops'
     allowTelemetryCollection: false
