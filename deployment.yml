@@ -2,6 +2,8 @@
 kind: Deployment
 metadata:
   name: webapp-deploy
+  labels:
+    app: webapp-deploy
 spec:
   replicas: 1
   selector:
