@@ -1,4 +1,4 @@
-﻿apiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: webapp-deploy
@@ -18,7 +18,7 @@ spec:
       - image: acrhari.azurecr.io/webapp
         name: nginx     
         ports:
-          - containerport:80
+          - containerPort: 80
       tolerations:
         - key: "CriticalAddonsOnly"
           operator: "Exists"
