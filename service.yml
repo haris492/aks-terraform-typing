@@ -7,7 +7,7 @@ metadata:
 spec:
   ports:
     - port: 80
-      targetport: 80
+      targetPort: 80
   selector:
     app: webapp
   type: LoadBalancer
