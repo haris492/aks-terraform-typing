@@ -14,8 +14,11 @@ spec:
       labels:
         app: webapp
     spec:
-      containers:
+      containers:      
       - image: acrhari.azurecr.io/webapp
         name: nginx     
         ports:
           - containerport:80
+      tolerations:
+        - key: "CriticalAddonsOnly"
+          operator: "Exists"
